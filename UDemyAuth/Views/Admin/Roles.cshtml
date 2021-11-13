@@ -1,0 +1,51 @@
+﻿@model List<AppRole>
+@{
+    ViewData["Title"] = "Roles";
+    Layout = "~/Views/Admin/_AdminLayout.cshtml";
+}
+
+
+
+<h3>Roles</h3>
+<hr />
+<table class="table table-bordered table-striped">
+    <tr>
+        <td>  Id  </td>
+        <td>  Rol adi  </td>
+        <td>  Silme  </td>
+        <td>  Deyisme  </td>
+
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Id</td>
+            <td>@item.Name</td>
+            <td><a data-id="@item.Id" class="delete btn btn-success">Sil</a></td>
+            <td><a asp-route-id="@item.Id" asp-action="RoleUpdate" class="update  btn btn-info">Deyisdir</a></td>
+        </tr>
+    }
+</table>
+<script>
+
+
+    $(".delete").click(function () {
+        var btn = $(this)
+        $.ajax({
+            url: '/Admin/Roledelete/' + btn.data('id'),
+            type: 'POST',
+            success: function () {
+                btn.parents('tr').remove();
+            }
+
+
+        })
+    })
+
+</script>
+
+
+
+
+<a asp-action="RoleCreate" class="btn btn-info">Roll yarad</a>

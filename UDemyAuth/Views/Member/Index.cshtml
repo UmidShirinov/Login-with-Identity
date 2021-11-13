@@ -1,0 +1,80 @@
+﻿@model UserViewModel
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Member/_MemberLayout.cshtml";
+}
+
+<h2>Istifadeci Melumatlari</h2>
+
+
+<div class="row mt-4">
+
+    <div class="col-sm-3">
+        <img style="width:80%; height:90%" src="@Model.Picture" /> 
+        @*<img src="~/UserPictures/808e8bc4-efc1-433c-b6f5-3e0eb410b07c.png" />*@
+    </div>
+    <div class="col-sm-9">
+        <table class="table table-bordered table-striped">
+            <tr>
+                <td>Istifadeci Adi</td>
+                <td>@Model.UserName</td>
+            </tr>
+            <tr>
+                <td>Email</td>
+                <td>@Model.Email</td>
+            </tr>
+            <tr>
+                <td>Telefon No</td>
+                <td>
+                    @if (!String.IsNullOrEmpty(@Model.PhoneNumber))
+                    {
+                        @Model.PhoneNumber
+                    }
+                    else
+                    {
+                        <span>Qeyd edilmeyib</span>
+                    }
+
+
+
+                    @Model.PhoneNumber
+                </td>
+            </tr>
+            <tr>
+                <td>Seher</td>
+                <td>
+                    @if (!String.IsNullOrEmpty(Model.City))
+                    {
+                        @Model.City
+                    }
+                    else
+                    {
+                        <span>Qeyd edilmeyib</span>
+                    }
+
+                </td>
+            </tr>
+            <tr>
+                <td>Dogum Tarixi</td>
+                <td>
+                    @if (!String.IsNullOrEmpty(Model.BirthDay?.ToShortDateString()))
+                    {
+                        Model.BirthDay?.ToShortDateString();
+                    }
+                    else
+                    {
+                        <span>Qeyd edilmeyib</span>
+                    }
+
+
+                </td>
+            </tr>
+            <tr>
+                <td>Cins</td>
+                <td>@Model.Gender</td>
+            </tr>
+        </table>
+    </div>
+
+</div>
+
