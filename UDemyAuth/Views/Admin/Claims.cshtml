@@ -1,0 +1,23 @@
+﻿@model List<System.Security.Claims.Claim>
+@{
+    ViewData["Title"] = "Claims";
+    Layout = "~/Views/Admin/_AdminLayout.cshtml";
+}
+
+<h1>Claims</h1>
+
+<table class="table table-bordered table-striped">
+
+
+    @foreach (var item in Model)
+    {
+       <tr>
+           <td>
+               @item
+           </td>
+
+       </tr>
+
+    }
+</table>
+

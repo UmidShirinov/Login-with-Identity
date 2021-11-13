@@ -185,5 +185,11 @@ namespace UDemyAuth.Controllers
         }
 
 
+
+        public IActionResult Claims()
+        {
+            return View(User.Claims.ToList());
+        }
+
     }
 }
