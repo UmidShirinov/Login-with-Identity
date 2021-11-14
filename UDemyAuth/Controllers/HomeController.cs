@@ -63,7 +63,6 @@ namespace UDemyAuth.Controllers
                         ModelState.AddModelError("", "Hesabiniz mueyyen vaxta qeder baglanilib");
                         return View(loginViewModel);
 
-
                     }
 
                     await _signInManager.SignOutAsync(); //cookieni silir ve cixis edir.
@@ -76,7 +75,7 @@ namespace UDemyAuth.Controllers
 
                         await _userManager.ResetAccessFailedCountAsync(user);   // sef gedislerin sayini sifirliyir
 
-                        if (User.IsInRole("Admin")==true)
+                        if (await _userManager.IsInRoleAsync(user , "Admin"))
                         {
                             return RedirectToAction("Index", "Admin");
                         }
