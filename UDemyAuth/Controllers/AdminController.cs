@@ -16,7 +16,7 @@ namespace UDemyAuth.Controllers
 
         //private  UserManager<AppUser> _userManager { get; set; }
 
-        public AdminController(UserManager<AppUser> userManager, RoleManager<AppRole> roleManager) : base(userManager, null, roleManager)
+        public AdminController(UserManager<AppUser> userManager, SignInManager<AppUser> signInManager ,RoleManager<AppRole> roleManager) : base(userManager, signInManager, roleManager)
         {
 
         }
@@ -172,10 +172,17 @@ namespace UDemyAuth.Controllers
                 if (item.Exist)
                 {
                     await _userManager.AddToRoleAsync(user, item.RoleName);
+                    //await _userManager.UpdateSecurityStampAsync(user);
+                    await _signInManager.RefreshSignInAsync(user);
+                    //await _signInManager.PasswordSignInAsync(user)
                 }
                 else
                 {
                     await _userManager.RemoveFromRoleAsync(user, item.RoleName);
+                    //await _userManager.UpdateSecurityStampAsync(user);
+                    await _signInManager.RefreshSignInAsync(user);
+
+
                 }
             }
 
