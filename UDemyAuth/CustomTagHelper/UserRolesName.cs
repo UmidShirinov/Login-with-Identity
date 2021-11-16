@@ -38,7 +38,7 @@ namespace UDemyAuth.CustomTagHelper
 
             roles.ToList().ForEach(x =>
             {
-                html += $"<span>{x}</span>&nbsp; ";
+                html += $"<span>{x}</span>&nbsp;";
 
 
             });
