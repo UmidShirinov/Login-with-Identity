@@ -198,13 +198,13 @@ namespace UDemyAuth.Controllers
 
 
 
-        [Authorize(Roles ="editor,admin")]
+        [Authorize(Roles ="Editor,Admin")]
         public IActionResult Editor()
         {
             return View();
         }
 
-        [Authorize(Roles = "manager,admin")]
+        [Authorize(Roles = "Manager,Admin")]
         public IActionResult Manager()
         {
             return View();
