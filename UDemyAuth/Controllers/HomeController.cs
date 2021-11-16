@@ -26,6 +26,10 @@ namespace UDemyAuth.Controllers
         {
             if (User.Identity.IsAuthenticated)
             {
+                if (User.IsInRole("Admin"))
+                {
+                    return RedirectToAction("Index", "Admin");
+                }
                 return RedirectToAction("Index", "Member");
             }
 
