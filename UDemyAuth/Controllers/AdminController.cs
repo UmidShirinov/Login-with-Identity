@@ -47,9 +47,18 @@ namespace UDemyAuth.Controllers
         {
             AppRole appRole = new AppRole();
 
+            AppUser user = new AppUser();
+            
+
+
             appRole.Name = roleViewModel.Name;
 
+
+            
+
             var result = _roleManager.CreateAsync(appRole).Result;
+
+            
 
 
             if (result.Succeeded)

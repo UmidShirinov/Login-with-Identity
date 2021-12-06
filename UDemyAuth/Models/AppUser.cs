@@ -20,5 +20,6 @@ namespace UDemyAuth.Models
 
         public int Gender { get; set; }
 
+
     }
 }

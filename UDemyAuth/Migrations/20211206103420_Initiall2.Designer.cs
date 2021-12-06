@@ -10,8 +10,8 @@ using UDemyAuth.Models;
 namespace UDemyAuth.Migrations
 {
     [DbContext(typeof(AppIdentityDbContext))]
-    [Migration("20211102205816_AddPictures_Gender_BirthDay")]
-    partial class AddPictures_Gender_BirthDay
+    [Migration("20211206103420_Initiall2")]
+    partial class Initiall2
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

@@ -29,6 +29,8 @@ namespace UDemyAuth.Controllers
             AppUser user = CurrentUser;   // her istifadeci ucun 
                                           // User.Identity yaranir
 
+            
+
 
             UserViewModel userViewModel = user.Adapt<UserViewModel>();                // Mapster yukluyursen sora
                                                                                       // Adapt metodu userin icindekileri 

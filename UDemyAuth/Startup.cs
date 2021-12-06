@@ -1,5 +1,4 @@
-﻿using LoginWithIdentity.ClaimProvider;
-using Microsoft.AspNetCore.Authentication;
+﻿using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -93,8 +92,6 @@ namespace UDemyAuth
                 opt.AccessDeniedPath = new PathString("/Member/AccessDenied");
 
             });
-
-            services.AddScoped<IClaimsTransformation,ClaimProvider>();
 
             services.AddMvc();
 
